@@ -1,6 +1,6 @@
 exports.seed = function (knex) {
-    return knex('authors').truncate()
-        .then(function () {
+    // return knex('authors').truncate()
+    //     .then(function () {
             return knex('authors').insert([
                 { name: 'Marijn Haverbeke' },  // 1
                 { name: 'Mark Masse' },        // 2
@@ -8,5 +8,5 @@ exports.seed = function (knex) {
                 { name: 'Mike Owens' },        // 4
         
             ])
-        })
+        // })
 }
