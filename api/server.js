@@ -10,7 +10,7 @@ const reviewsRouter = require('../reviews/reviews-router.js');
 const server = express();
 
 const corsConfig = {
-    origin: 'http://localhost:3000',
+    // origin: 'http://localhost:3000',
     credentials: true,
 }
 
