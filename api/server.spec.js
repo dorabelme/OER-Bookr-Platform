@@ -13,26 +13,26 @@ describe('server', () => {
         it('should return 201 status', () => {
             return request(server).post('/api/auth/register')
                 .send({
-                    username: "tommy",
-                    password: "password2"
+                    username: "dora",
+                    password: "admin1234"
                 })
                 .set('Content-Type', 'application/json')
                 .then(res => {
                     expect(res.status).toBe(201)
-                    expect(res.body.username).toBe('tommy')
+                    expect(res.body.username).toBe('dora')
                 })
         })
 
         it('username should be {Name}', () => {
             return request(server).post('/api/auth/register')
                 .send({
-                    username: "lily",
-                    password: "pass"
+                    username: "blake",
+                    password: "testuser1234"
                 })
                 .set('Content-Type', 'application/json')
                 .then(res => {
                     expect(res.status).toBe(201)
-                    expect(res.body.username).toBe('lily')
+                    expect(res.body.username).toBe('blake')
                 })
         })
     })
@@ -51,7 +51,7 @@ describe('POST /LOGIN', () => {
         const res = await request(server).post('/api/auth/login')
             .send({
                 username: "admin",
-                password: "admin"
+                password: "admin1234"
             })
             .set('Content-Type', 'application/json')
 
@@ -65,7 +65,7 @@ describe('POST /LOGIN', () => {
         return request(server).post('/api/auth/login')
             .send({
                 username: "admin",
-                password: "admin"
+                password: "admin1234"
             })
             .set('Content-Type', 'application/json')
             .then(res => {
@@ -77,8 +77,8 @@ describe('POST /LOGIN', () => {
     it('username should be {Name}', () => {
         return request(server).post('/api/auth/login')
             .send({
-                username: "lily",
-                password: "pass"
+                username: "testuser",
+                password: "testuser1234"
             })
             .set('Content-Type', 'application/json')
             .then(res => {
@@ -93,19 +93,21 @@ describe('POST /LOGIN', () => {
 
 describe('GET /api/users', () => {
     it('returns json OK', () => {
-        return request(server).get('/api/jokes')
+        return request(server).get('/api/users')
             .expect('Content-Type', /json/)
     });
 
     it('should return 200 Status', () => {
-        return request(server).get('/api/jokes')
-            .set('authorization', token)
+        return request(server).get('/api/users')
+            .set('Authorization', token)
             .then(res => {
                 expect(res.status).toBe(200)
             })
     })
 
 })
+
+
 
 
 
