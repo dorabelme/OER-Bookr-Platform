@@ -1,7 +1,7 @@
 {
-  "name": "nodeauth-challenge",
+  "name": "oer-bookr",
   "version": "1.0.0",
-  "description": "Authentication Sprint Challenge",
+  "description": "Oer-Bookr Build Week project",
   "main": "index.js",
   "scripts": {
     "test": "cross-env DB_ENV=testing jest --watchAll",
@@ -9,16 +9,11 @@
     "start": "node index.js"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/Sprint-Challenge-Authentication.git"
+    "type": "git"
   },
   "keywords": [],
-  "author": "Lambda School",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LambdaSchool/Sprint-Challenge-Authentication/issues"
-  },
-  "homepage": "https://github.com/LambdaSchool/Sprint-Challenge-Authentication#readme",
+  "author": "Dora Belme",
+
   "dependencies": {
     "axios": "^0.19.0",
     "bcryptjs": "^2.4.3",
