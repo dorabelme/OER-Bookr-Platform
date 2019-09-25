@@ -94,8 +94,8 @@ exports.up = function(knex) {
 exports.down = function (knex) {
   return knex.schema
     .dropTableIfExists('reviews')
-    .dropTableIfExists('authors')
     .dropTableIfExists('book_authors')
+    .dropTableIfExists('authors')
     .dropTableIfExists('books')
     .dropTableIfExists('users')
     .dropTableIfExists('user_books')
