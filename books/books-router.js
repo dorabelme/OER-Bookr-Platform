@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
         
         return bookAuthorsPromise.then(_ => { return book })
     })
-
+    console.log(book);
     createdBookAuthorsPromise
         .then(({ id }) => {
             getBook(id, res)
