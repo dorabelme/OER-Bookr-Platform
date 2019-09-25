@@ -23,6 +23,7 @@ router.post('/', (req, res) => {
             res.status(201).json(review);
         })
         .catch(err => {
+            console.log(err);
             res.status(500).json({ message: 'Failed to create new review.' });
         });
 });
