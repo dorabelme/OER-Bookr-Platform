@@ -22,7 +22,7 @@ function getReviewsById(id) {
 }
 
 function addReview(review) {
-    return db("reviews").insert(review).then(ids => {
+    return db("reviews").insert(review, "id").then(ids => {
         return getReviewsById(ids[0]);
     });
 }
