@@ -35,7 +35,7 @@ function findById(id) {
         return {...user, books: books}
     })
 
-    return returnPromise
+    return returnPromise;
 }
 
 function findBooksForUser(user_id) {
