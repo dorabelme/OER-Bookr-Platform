@@ -18,9 +18,9 @@ exports.up = function(knex) {
       books.string('publisher', 400)
       books.string('license', 400)
         .notNullable();
-      books.string('access_link');
-      books.string('thumbnail');
-      books.string('description');
+      books.string('access_link', 1024);
+      books.string('thumbnail', 1024);
+      books.string('description', 1024);
       books.string('tag')
     })
 
