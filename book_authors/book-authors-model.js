@@ -18,7 +18,7 @@ module.exports = {
 // }
 
 function addBookAuthor(book_author) {
-    return db("book_authors").insert(book_author).then(ids => {
+    return db("book_authors").insert(book_author, "id").then(ids => {
         return ids[0];
     });
 }

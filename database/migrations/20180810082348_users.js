@@ -20,7 +20,8 @@ exports.up = function(knex) {
         .notNullable();
       books.string('access_link');
       books.string('thumbnail');
-      books.string('description')
+      books.string('description');
+      books.string('tag')
     })
 
     .createTable('authors', books => {
