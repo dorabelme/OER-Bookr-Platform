@@ -19,7 +19,8 @@ exports.up = function(knex) {
       books.string('license', 400)
         .notNullable();
       books.string('access_link');
-      books.string('thumbnail')
+      books.string('thumbnail');
+      books.string('description')
     })
 
     .createTable('authors', books => {
@@ -47,6 +48,24 @@ exports.up = function(knex) {
         .onUpdate('CASCADE')
     })
 
+    .createTable('user_books', user_books => {
+      user_books.increments();
+      // Foreign keys
+      user_books.integer('book_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('books')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+      user_books.integer('user_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('users')
+        .onDelete('RESTRICT')
+        .onUpdate('CASCADE')
+    })
   
     .createTable('reviews', reviews => {
       reviews.increments();
@@ -79,4 +98,5 @@ exports.down = function (knex) {
     .dropTableIfExists('book_authors')
     .dropTableIfExists('books')
     .dropTableIfExists('users')
+    .dropTableIfExists('user_books')
 };

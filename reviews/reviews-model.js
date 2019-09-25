@@ -9,11 +9,15 @@ module.exports = {
 }
 
 function getReviews() {
-    return db("reviews")
+    return db("reviews as R")
+        .innerJoin("users as U", "U.id", "=", "R.reviewer_id")
+        .select('R.*', 'U.name', 'U.username')
 }
 
 function getReviewsById(id) {
-    return db("reviews")
+    return db("reviews as R")
+        .innerJoin("users as U", "U.id", "=", "R.reviewer_id")
+        .select('R.*', 'U.name', 'U.username')
         .where("id", id).first();
 }
 
