@@ -1,7 +1,5 @@
 const express = require('express');
-
 const Authors = require('./authors-model.js');
-
 const router = express.Router();
 
 router.get('/', (req, res) => {

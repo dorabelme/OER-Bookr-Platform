@@ -1,7 +1,5 @@
 const express = require('express');
-
 const Users = require('./users-model.js');
-
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -26,7 +24,5 @@ router.get('/:id', (req, res) => {
             res.status(500).json({ message: 'Failed to get user.' });
         });
 });
-
-
 
 module.exports = router;

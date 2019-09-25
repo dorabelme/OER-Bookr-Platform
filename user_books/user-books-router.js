@@ -1,7 +1,5 @@
 const express = require('express');
-
 const UserBooks = require('./user-books-model.js');
-
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -14,7 +12,6 @@ router.get('/', (req, res) => {
         });
 });
 
-
 router.post('/', (req, res) => {
     const userBooks = req.body;
 
@@ -26,27 +23,6 @@ router.post('/', (req, res) => {
             res.status(500).json({ message: 'Failed to add book to a user collection.' });
         });
 }); 
-
-// router.put('/:id', (req, res) => {
-//     const { id } = req.params;
-//     const changes = req.body;
-
-//     Reviews.getAuthorsById(id)
-//         .then(author => {
-//             if (author) {
-//                 Authors.updateAuthor(id, changes)
-//                     .then(updatedAuthor => {
-//                         return res.json(updatedAuthor);
-//                     });
-//             } else {
-//                 res.status(404).json({ message: 'Could not find author with given id.' });
-//             }
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json({ message: 'Failed to update author.' });
-//         });
-// });
 
 router.delete('/:id', (req, res) => {
     const { id } = req.params;
