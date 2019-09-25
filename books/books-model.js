@@ -66,7 +66,7 @@ function getBooksById(id) {
 }
 
 function addBooks(book) {
-    return db("books").insert(book).then(ids => {
+    return db("books").insert(book, "id").then(ids => {
         return getBooksById(ids[0]);
     });
 }

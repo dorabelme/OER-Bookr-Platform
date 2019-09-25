@@ -18,7 +18,7 @@ function getAuthorsById(id) {
 }
 
 function addAuthor(author) {
-    return db("authors").insert(author).then(ids => {
+    return db("authors").insert(author, "id").then(ids => {
         return getAuthorsById(ids[0]);
     });
 }

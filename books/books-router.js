@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
         
         return bookAuthorsPromise.then(_ => { return book })
     })
-
+    console.log(book);
     createdBookAuthorsPromise
         .then(({ id }) => {
             getBook(id, res)
@@ -103,27 +103,6 @@ router.put('/:id', (req, res) => {
         });
 });
 
-
-// // GET reviews for a book
-// router.get('/:book_id/reviews', (req, res) => {
-//     const { book_id } = req.params;
-//     Books.getBooksById(book_id)
-//         .then((book) => {
-//             if (book) {
-//                 Books.findReviewsForBook(book_id)
-//                     .then(reviews => {
-//                         res.status(200).json(reviews);
-//                     })
-//             } else {
-//                 res.status(404).json({ error: "Book with ID does not exist." });
-//             }
-//         })
-//         .catch(err => {
-//             console.log(err);
-//             res.status(500).json({ error: "Server error getting book reviews." });
-//         });
-// });
-
 function getBook(id, res) {
     return Books.getBooksById(id)
         .then((book) => {
@@ -139,7 +118,5 @@ function getBook(id, res) {
             res.status(500).json({ error: "Error getting the book from the database." });
         });
 }
-
-
 
 module.exports = router;

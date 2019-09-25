@@ -1,7 +1,5 @@
 const express = require('express');
-
 const Reviews = require('./reviews-model.js');
-
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -14,7 +12,6 @@ router.get('/', (req, res) => {
         });
 });
 
-
 router.post('/', (req, res) => {
     const reviewData = req.body;
 
@@ -23,6 +20,7 @@ router.post('/', (req, res) => {
             res.status(201).json(review);
         })
         .catch(err => {
+            console.log(err);
             res.status(500).json({ message: 'Failed to create new review.' });
         });
 });
@@ -64,6 +62,5 @@ router.delete('/:id', (req, res) => {
             res.status(500).json({ message: 'Failed to delete review.' });
         });
 });
-
 
 module.exports = router;
