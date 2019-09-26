@@ -11,10 +11,6 @@ module.exports = {
     findAuthorsForBook
 }
 
-function getBooks() {
-    return db("books");
-}
-
 function average(l) {
     var total = 0;
     for (var i = 0;i < l.length; i++) {
@@ -22,6 +18,10 @@ function average(l) {
     }
     var avg = total / l.length;
     return avg
+}
+
+function getBooks() {
+    return db("books");
 }
 
 function getBooksExpanded() {
@@ -35,6 +35,15 @@ function getBooksExpanded() {
     })
 
     return finalPromise
+}
+
+function getBooksById(id) {
+    const bookPromise = db("books")
+        .where("id", id).first()
+
+    const expandedBook = bookPromise.then(book => expandBook(book))
+
+    return expandedBook;
 }
 
 function expandBook(book) {
@@ -54,15 +63,6 @@ function expandBook(book) {
     })
 
     return bookPromise
-}
-
-function getBooksById(id) {
-    const bookPromise = db("books")
-        .where("id", id).first()
-
-    const expandedBook = bookPromise.then(book => expandBook(book))
-    
-    return expandedBook;
 }
 
 function addBooks(book) {
