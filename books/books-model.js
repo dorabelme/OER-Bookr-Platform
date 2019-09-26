@@ -87,10 +87,12 @@ function removeBooks(id) {
 function findReviewsForBook(id) {
     return db('reviews as R')
         // .innerJoin("reviews as R", "B.id", "=", "R.book_id")
+        .innerJoin("users as U", "R.reviewer_id", "=", "U.id")
         .select(
             "R.id",
             "R.review",
             "R.stars",
+            "U.username"
         )
         .where({ book_id: id });
 }
