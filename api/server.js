@@ -25,7 +25,7 @@ server.use(cors(corsConfig));
 server.use(express.json());
 
 server.use('/api/auth', authRouter);
-server.use('/api/books', booksRouter);
+server.use('/api/books', authenticate, booksRouter);
 server.use('/api/reviews', authenticate, reviewsRouter);
 server.use('/api/wishlist', authenticate, wishlistRouter);
 server.use('/api/users', authenticate, usersRouter);
