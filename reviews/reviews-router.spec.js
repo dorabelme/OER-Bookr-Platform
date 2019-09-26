@@ -1,56 +1,100 @@
-const server = require('../api/server.js');
 const request = require('supertest');
-const prepTestDB = require('../helpers/prepTestDB.js');
-jest.mock('../auth/authenticate-middleware.js')
+const db = require('../database/dbConfig.js');
+const Reviews = require('./reviews-model.js');
 
-// beforeEach(prepTestDB);
 
-describe('reviews', () => {
-    it('post /', async () => {
-        const res = await request(server)
-            .post('/api/reviews')
-            .send({
-                "review": "New review5.",
-                "stars": 4,
-                "reviewer_id": 2,
-                "book_id": 1
-            });
-        expect(res.status).toBe(201);
+describe('reviews model', () => {
+    beforeEach(async () => {
+        await db('reviews').truncate();
+    })
+
+    describe('getReviews', () => {
+        it('should return a empty array from the reviews route', async () => {
+            const reviews = await Reviews.getReviews();
+            expect(reviews).toEqual([]);
+        });
     });
 
-    // it('put /', async () => {
-    //     const res = await request(server)
-    //         .put('/api/reviews/10')
-    //         .send({
-    //             "title": "some title6",
-    //             "publisher": "some publisher",
-    //             "license": "some license",
-    //             "authors": "author1, author2, author3"
-    //         });
-    //     expect(res.status).toBe(200);
-    // });
+    describe('getReviewsById', () => {
+        it('should return review with provided id', async () => {
+            let testReview = {
+                review: 'Easy to read and great content.',
+                stars: 3,
+                reviewer_id: 1,
+                book_id: 3
+            }
+            await Reviews.addReview(testReview);
 
-    // it('delete /', async () => {
-    //     const res = await request(server)
-    //         .delete('/api/books/10')
-    //     expect(res.status).toBe(204);
-    // });
+            let review = await Reviews.getReviewsById(1);
 
-    it('get /', async () => {
-        const res = await request(server).get('/api/reviews');
-        expect(res.status).toBe(200);
+            expect(review.stars).toBe(3);
+            expect(review.review).toBe('Easy to read and great content.')
+        });
+    });
 
-        // console.log(res.body);
+    describe('addReview', () => {
+        it('should add provided reviews to db', async () => {
+            let testReview = {
+                review: 'Easy to read and great content.',
+                stars: 5,
+                reviewer_id: 1,
+                book_id: 3
+            }
+            await Reviews.addReview(testReview);
 
-        expect(res.body[0]).toEqual({
-            "id": 1,
-            "review": "New review5.",
-            "stars": 4,
-            "reviewer_id": 2,
-            "book_id": 1,
-            "name": "admin",
-            "username": "admin"
-        },);
+            testReview = {
+                review: 'great content.',
+                stars: 4,
+                reviewer_id: 2,
+                book_id: 3
+            }
+            await Reviews.addReview(testReview);
 
+            const review = await db('reviews');
+
+            expect(review).toHaveLength(2);
+        });
+    });
+
+    describe('updateReview', () => {
+        it('should update a review at provided id', async () => {
+            let testReview = {
+                review: 'Easy to read and great content.',
+                stars: 5,
+                reviewer_id: 1,
+                book_id: 3
+            }
+            await Reviews.addReview(testReview);
+
+            let id = 1;
+            let testChanges = {
+                review: 'Big Changes',
+                stars: 5,
+                reviewer_id: 1,
+                book_id: 3
+            }
+            const review = await Reviews.updateReview(id, testChanges);
+
+            expect(review.review).toBe('Big Changes');
+            expect(review.id).toBe(1);
+        });
+    });
+
+    describe('removeReview', () => {
+        it('should remove a review at provided id', async () => {
+            let testReview = {
+                review: 'Easy to read and great content.',
+                stars: 5,
+                reviewer_id: 1,
+                book_id: 3
+            }
+            await Reviews.addReview(testReview);
+
+            let id = 1;
+            await Reviews.removeReview(id);
+
+            const review = await db('reviews');
+            expect(review).toEqual([]);
+        });
     });
 });
