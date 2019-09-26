@@ -21,7 +21,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   | ------ |:--------:|:--------:|:-----------:| -------:|
   | GET    | /    | nothing | Array of all books | Used to get all books |
   | POST   | /    | title, publisher, license, authors | New book | Adds a new book |
-  | PUT    | /:id | title, publisher, license | Updated book | Updates an existing book |
+  | PUT    | /:id | id, title, publisher, license | Updated book | Updates an existing book |
   | DELETE | /:id | id | 204 | Deletes an existing book |
     - #### Data Structure
     ```javascript
@@ -52,8 +52,8 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   | Method | Endpoint | Requires | Returns | Description |
   | ------ |:--------:|:--------:|:-----------:| -------:|
   | GET    | /    | nothing | Array of all reviews | Used to get all reviews |
-  | POST   | /    | TBD | New review | Adds a new review |
-  | PUT    | /:id | id | Updated review | Updates an existing review |
+  | POST   | /    | review, reviewer_id, book_id | New review | Adds a new review |
+  | PUT    | /:id | id, review, reviewer_id, book_id | Updated review | Updates an existing review |
   | DELETE | /:id | id | 204 | Deletes an existing review |
     - #### Data Structure
     ```javascript
