@@ -19,7 +19,7 @@ describe('reviews model', () => {
     it('should return review with provided id', async () => {
       let testReview = {
         review: 'Easy to read and great content.',
-        stars: 5,
+        stars: 3,
         reviewer_id: 1,
         book_id: 3
       }
@@ -27,9 +27,7 @@ describe('reviews model', () => {
 
       let review = await Reviews.getReviewsById(1);
 
-      // let review = await Reviews.getReviewsById(1);
-
-      expect(review.book_id).toBe(3);
+      expect(review.stars).toBe(3);
       expect(review.review).toBe('Easy to read and great content.')
     });
   });
