@@ -26,15 +26,26 @@ This server is hosted at: https://oer-bookr.herokuapp.com
     - #### Data Structure
     ```javascript
     {
-      id: 0,
-      title: "",
-      publisher: "",
-      license: "",
-      access_link: "",
-      thumbnail: "",
-      description: "",
-      tag: "",
-   }
+      "id":1,
+      "title":"Eloquent JavaScript, 3rd Edition: A Modern Introduction to Programming",
+      "publisher":"William Pollock",
+      "license":"",
+      "access_link":"https://www.amazon.com/Eloquent-JavaScript-3rd-Introduction-Programming/dp/1593279507/ref=sr_1_5?crid=2WUA5IJAH5DLY&keywords=books+javascript&qid=1569177402&sprefix=books+javasc%2Caps%2C132&sr=8-5","thumbnail":"../../assets/eloquent_thumbnail.jpeg",
+      "description":null,
+      "reviews":[
+        {
+          "id":1,
+          "review":"Very detailed and thorough, the explanations in this book helped me understand JS. Finding this resource was like taking a breath of fresh air.","stars":5
+        }
+      ],
+      "authors":[
+        {
+          "id":1,
+          "name":"Marijn Haverbeke"
+        }
+      ],
+      "stars":5
+    }
     ```
 
   ### /api/reviews<a name="/api/reviews"></a>
