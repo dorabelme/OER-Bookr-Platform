@@ -27,6 +27,8 @@ describe('reviews model', () => {
 
       let review = await Reviews.getReviewsById(1);
 
+      // let review = await Reviews.getReviewsById(1);
+
       expect(review.book_id).toBe(3);
       expect(review.review).toBe('Easy to read and great content.')
     });
