@@ -24,7 +24,7 @@ async function add(user) {
 }
 
 function findById(id) {
-    const userPromise = db('users').where({ id }).first();    
+    const userPromise = db('users').where({ id }).first();
     const booksPromise = findBooksForUser(id);
     const jointPromise = Promise.all([userPromise, booksPromise]);
 
@@ -53,8 +53,8 @@ function findBooksForUser(user_id) {
     return returnPromise;
 }
 
-function remove() {
-    return db('actions')
+function remove(id) {
+    return db('users')
         .where('id', id)
         .del();
 }
