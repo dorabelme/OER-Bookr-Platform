@@ -92,7 +92,8 @@ function findReviewsForBook(id) {
             "R.id",
             "R.review",
             "R.stars",
-            "U.username"
+            "U.username",
+            "U.name"
         )
         .where({ book_id: id });
 }
