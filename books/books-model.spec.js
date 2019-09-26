@@ -10,10 +10,7 @@ describe('books model', () => {
 
   describe('getBooks', () => {
     it('should return a empty array fron the books route', async () => {
-      await Books.getBooks();
-
-      const books = await db('books');
-
+      const books = await Books.getBooks();
       expect(books).toEqual([]);
     });
   });
@@ -31,10 +28,10 @@ describe('books model', () => {
       }
       await Books.addBooks(testBook);
 
-      let testId = 1;
-      let book = await Books.getBooksById(testId);
+      let book = await Books.getBooksById(1);
 
       expect(book.id).toBe(1);
+      expect(book.title).toBe("The Guide")
     });
   });
 
