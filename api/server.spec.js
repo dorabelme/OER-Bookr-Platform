@@ -2,7 +2,9 @@ const request = require('supertest');
 const server = require('./server.js');
 const db = require('../database/dbConfig.js');
 const bcrypt = require('bcryptjs');
+const prepTestDB = require('../helpers/prepTestDB.js');
 
+// beforeEach(prepTestDB);
 
 describe('server', () => {
     beforeEach(async () => {
@@ -14,7 +16,8 @@ describe('server', () => {
             return request(server).post('/api/auth/register')
                 .send({
                     username: "dora",
-                    password: "admin1234"
+                    password: "admin1234",
+                    name: "Dora Belme"
                 })
                 .set('Content-Type', 'application/json')
                 .then(res => {
@@ -27,7 +30,8 @@ describe('server', () => {
             return request(server).post('/api/auth/register')
                 .send({
                     username: "blake",
-                    password: "testuser1234"
+                    password: "testuser1234",
+                    name: "Blake"
                 })
                 .set('Content-Type', 'application/json')
                 .then(res => {
@@ -44,8 +48,8 @@ describe('POST /LOGIN', () => {
     it('Token should exist', async () => {
         // await db.seed.run()
         await db('users').insert([
-            { username: "admin", password: bcrypt.hashSync("admin", 16) },
-            { username: "testuser", password: bcrypt.hashSync("test", 16) }
+            { username: "admin", password: bcrypt.hashSync("admin1234", 16), name: "admin" },
+            { username: "testuser", password: bcrypt.hashSync("testuser1234", 16), name: "testuser" }
         ])
 
         const res = await request(server).post('/api/auth/login')
@@ -99,7 +103,7 @@ describe('GET /api/users', () => {
 
     it('should return 200 Status', () => {
         return request(server).get('/api/users')
-            .set('Authorization', token)
+            .set('authorization', token)
             .then(res => {
                 expect(res.status).toBe(200)
             })

@@ -49,7 +49,7 @@ router.post('/', (req, res) => {
         
         return bookAuthorsPromise.then(_ => { return book })
     })
-    console.log(book);
+    // console.log(book);
     createdBookAuthorsPromise
         .then(({ id }) => {
             getBook(id, res)
@@ -90,7 +90,7 @@ router.put('/:id', (req, res) => {
     
     Books.updateBooks(id, { title, publisher, license })
         .then(updated => {
-            console.log(updated);
+            // console.log(updated);
             if (updated) {
                 getBook(id, res);
             } else {
@@ -106,7 +106,7 @@ router.put('/:id', (req, res) => {
 function getBook(id, res) {
     return Books.getBooksById(id)
         .then((book) => {
-            console.log(book);
+            // console.log(book);
             if (book) {
                 res.status(200).json(book);
             } else {
