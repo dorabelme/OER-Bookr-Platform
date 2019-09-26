@@ -52,27 +52,6 @@ describe('users model', () => {
     });
   });
 
-  // describe('updateBooks', () => {
-  //   it('should update a book at provided id', async () => {
-  //     let testBook = {
-  //       title: "The Guide",
-  //       publisher: "opensatx",
-  //       license: "n/a",
-  //     }
-  //     await Books.addBooks(testBook);
-  //
-  //     let id = 1;
-  //     let testChanges = {
-  //       title: "The Updated Guide",
-  //       publisher: "opensatx",
-  //       license: "n/a",
-  //     }
-  //     const books = await Books.updateBooks(id, testChanges);
-  //
-  //     expect(books.title).toBe("The Updated Guide");
-  //   });
-  // });
-  //
   describe('remove', () => {
     it('should remove a user at provided id', async () => {
       let testUser = {
