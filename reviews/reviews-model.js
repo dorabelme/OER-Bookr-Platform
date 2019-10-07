@@ -12,6 +12,7 @@ function getReviews() {
     return db("reviews as R")
         .innerJoin("users as U", "U.id", "=", "R.reviewer_id")
         .select('R.*', 'U.name', 'U.username')
+        .orderBy('R.id', 'asc')
 }
 
 function getReviewsById(id) {

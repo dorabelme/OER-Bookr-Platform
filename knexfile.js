@@ -12,6 +12,9 @@ module.exports = {
   
   testing: {
     client: 'sqlite3',
+    // connection: {
+    //   filename: ':memory:'
+    // },
     connection: {
       filename: './database/test.db3',
     },

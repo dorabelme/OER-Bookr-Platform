@@ -16,6 +16,10 @@ const corsConfig = {
     credentials: true,
 }
 
+server.get('/', (req, res) => {
+  res.status(200).json({ api: 'running' });
+});
+
 server.use(helmet());
 server.use(cors(corsConfig));
 server.use(express.json());
