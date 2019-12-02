@@ -48,8 +48,8 @@ describe('POST /LOGIN', () => {
     it('Token should exist', async () => {
         // await db.seed.run()
         await db('users').insert([
-            { username: "admin", password: bcrypt.hashSync("admin1234", 16), name: "admin" },
-            { username: "testuser", password: bcrypt.hashSync("testuser1234", 16), name: "testuser" }
+            { username: "admin", password: bcrypt.hashSync("admin1234", 8), name: "admin" },
+            { username: "testuser", password: bcrypt.hashSync("testuser1234", 8), name: "testuser" }
         ])
 
         const res = await request(server).post('/api/auth/login')
