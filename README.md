@@ -1,4 +1,4 @@
-# OER-BE
+# OER Bookr Platform
 
 This server is hosted at: https://oer-bookr.herokuapp.com
 
@@ -7,23 +7,35 @@ This server is hosted at: https://oer-bookr.herokuapp.com
 
 ## Dependencies
 
-- dependencies:
-  axios: ^0.19.0,
-  bcryptjs: ^2.4.3,
-  cors: ^2.8.5,
-  express: ^4.17.1,
-  helmet: ^3.20.0,
-  jsonwebtoken: ^8.5.1,
-  knex: ^0.19.2,
-  knex-cleaner: ^1.3.0,
-  pg: ^7.12.1,
-  sqlite3: ^4.1.0
+  * axios: ^0.19.0
+  * bcryptjs: ^2.4.3
+  * cors: ^2.8.5
+  * express: ^4.17.1
+  * helmet: ^3.20.0
+  * jsonwebtoken: ^8.5.1
+  * knex: ^0.19.2
+  * knex-cleaner: ^1.3.0
+  * pg: ^7.12.1
+  * sqlite3: ^4.1.0
 
 - devDependencies
-  cross-env: ^5.2.0,
-  jest: ^24.9.0,
-  nodemon: ^1.19.1,
-  supertest: ^4.0.2
+  * cross-env: ^5.2.0
+  * jest: ^24.9.0
+  * nodemon: ^1.19.1
+  * supertest: ^4.0.2
+
+## Built With
+- [Node.js](https://en.wikipedia.org/wiki/Node.js) - JavaScript runtime for executing JavaScript at the server outside the browser
+- [Express.js](https://expressjs.com/) - Lightweight web framework to bootstrap Node.js APIs
+- [SQLite](https://www.sqlite.org/index.html) - Super lightweight database to bootstrap development environments
+- [PostgreSQL](https://www.postgresql.org/) - An advanced object-relational database for production environments
+- [Knex.js](https://knexjs.org/) - A SQL query builder that helps abstracting migrations and DDLs for different database types into a single coherent structure
+- [Bcrypt.js](https://www.npmjs.com/package/bcryptjs) - A module to help make passwords more secure
+- [CORS](https://www.npmjs.com/package/cors) - A Node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.
+- [Helmet](https://www.npmjs.com/package/helmet) - A collection of 14 smaller middleware functions that set HTTP response headers.
+- [JWT](https://jwt.io/) - JSON Web Token for authorization and client side tokens for security
+- [Supertest](https://www.npmjs.com/package/supertest) - A test module for HTTP assertions
+- [Jest](https://jestjs.io/) - A simple JavaScript testing framework
 
 ## Endpoints
 
@@ -50,7 +62,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   | PUT    |   /:id   |   id, title, publisher, license    |    Updated book    | Updates an existing book |
   | DELETE |   /:id   |                 id                 |        204         | Deletes an existing book |
 
-  - #### Data Structure
+  #### Data Structure
 
   ```javascript
    {
@@ -94,7 +106,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   | PUT    |   /:id   | id, review, reviewer_id, book_id, stars |    Updated review    | Updates an existing review |
   | DELETE |   /:id   |                   id                    |         204          | Deletes an existing review |
 
-  - #### Data Structure
+  #### Data Structure
 
   ```javascript
   {
@@ -113,7 +125,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   | GET    |    /     | nothing  | Array of all users |               Used to get all users |
   | GET    |   /:id   |    id    |    Single user     | Get a single user with its wishlist |
 
-  - ### Data Structure
+  #### Data Structure
 
   ```javascript
   {
@@ -207,7 +219,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   | POST   |    /     | book_id, user_id |                  201                  |           Adds a new item |
   | DELETE |   /:id   |        id        |                  204                  |  Deletes an existing item |
 
-  - ### Data Structure
+  #### Data Structure
 
   ```javascript
   {
