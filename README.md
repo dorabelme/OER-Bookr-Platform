@@ -7,7 +7,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
 
 ## Short demo:
 
-![Game-example](oer-bookr.gif)
+![Game-example](oer-bookr-platform.gif)
 
 ## Dependencies
 
