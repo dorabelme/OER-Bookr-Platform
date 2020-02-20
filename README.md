@@ -5,6 +5,10 @@ This server is hosted at: https://oer-bookr.herokuapp.com
 - [Deployed front-end](https://oerbookr.netlify.com/)
   - Log in as an demo user with email `admin` & password `admin1234`
 
+## Short demo:
+
+![Game-example](oer-bookr.gif)
+
 ## Dependencies
 
   * axios: ^0.19.0
@@ -135,7 +139,7 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   }
   ```
 
-  - GET user
+  ### GET user
 
   ```javascript
   {
