@@ -6,8 +6,10 @@ This server is hosted at: https://oer-bookr.herokuapp.com
   - Log in as an demo user with email `admin` & password `admin1234`
 
 ## Short demo:
-
-<p align="center"></p>
+<!-- <p align ="center">
+![Game-example](oer-bookr-platform.gif)
+</p> -->
+<p align ="center">
 <img src="./oer-bookr-platform.gif" alt="Website demo">
 </p>
 
